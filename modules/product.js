@@ -1,66 +1,20 @@
-[
-    {
-        "productid":"p1",
-        "title":"Java",
-        "price":"280",
-        "category":[
-            "Language",
-            "Programming"
-        ],
-        "companyid":"c1",
-        "sellerid":["s3","s1","s3"]
-    },
-    {
-        "productid":"p2",
-        "title":"Mobile",
-        "price":"18000",
-        "category":[
-            "Smart Phones",
-            "Android"
-        ],
-        "companyid":"c2",
-        "sellerid":["s2"]
-    },
-    {
-        "productid":"p3",
-        "title":"Oracle",
-        "price":"1350",
-        "category":[
-            "Database"
-        ],
-        "companyid":"c1",
-        "sellerid":["s1"]
-    },
-    {
-        "productid":"p4",
-        "title":"Minions",
-        "price":"120000",
-        "category":[
-            "Animation",
-            "Movie",
-            "Kids Story"
-        ],
-        "companyid":"c3",
-        "sellerid":["s3"]
-    },
-    {
-        "productid":"p5",
-        "title":"Laptop",
-        "price":"36000",
-        "category":[
-            "Laptops"
-        ],
-        "companyid":"c2",
-        "sellerid":["s2"]
-    },
-    {
-        "productid":"p6",
-        "title":"TV",
-        "price":"14500",
-        "category":[
-            "Electronics"
-        ],
-        "companyid":"c2",
-        "sellerid":["s2"]
-    }
-]
+
+const mongoose = require("mongoose");
+mongoose.pluralize(null);
+
+const productSchema = mongoose.Schema( {
+    productid : String,
+    title : String,
+    price : String,
+    category : [{
+        type:String
+    }],
+    companyid : String,
+    sellerid : [{
+        type:String
+    }],
+});
+
+const productModel = mongoose.model("Product",productSchema);
+
+module.exports= productModel;
